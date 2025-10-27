@@ -1,0 +1,299 @@
+/* 1. Configurações Globais e Variáveis */
+:root {
+    --cor-primaria: #007BFF; /* Azul vibrante */
+    --cor-secundaria: #343A40; /* Cinza escuro */
+    --cor-fundo: #f8f9fa; /* Fundo claro */
+    --cor-texto: #333;
+    --cor-branca: #ffffff;
+    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth; /* Rolagem suave */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 2. Cabeçalho (Header) */
+header {
+    background: var(--cor-branca);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--sombra-padrao);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+/* 3. Seção Principal (Hero) */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--cor-primaria), #0056b3);
+    color: var(--cor-branca);
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background: var(--cor-branca);
+    color: var(--cor-primaria);
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. Seção de Recursos (Features) - DINÂMICA */
+#features, #benefits-list { /* Aplicando o mesmo estilo para a nova página */
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--cor-secundaria);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--cor-branca);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-padrao);
+    text-align: center;
+    
+    /* Animação de entrada (configuração inicial) */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Classe que o JavaScript vai adicionar */
+.feature-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 5. Seção do Produto (Product) */
+#product {
+    padding: 5rem 0;
+    background: var(--cor-branca);
+}
+
+.product-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+}
+
+.product-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.product-info .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+}
+
+.product-info .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #777;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.product-info p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+#buy-button {
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; /* Ocupa a largura toda */
+}
+
+#buy-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* --- NOVO ESTILO ADICIONADO --- */
+/* 6. Botão Secundário (para a página de benefícios) */
+.btn-secondary {
+    display: block; /* Para ocupar a largura toda */
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    color: var(--cor-primaria);
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid var(--cor-primaria);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 1rem; /* Espaço entre os botões */
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+}
+/* --- FIM DA ADIÇÃO --- */
+
+
+/* 7. Footer */
+footer {
+    background: var(--cor-secundaria);
+    color: #ccc;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+}
+
+/* Estilo para a página de benefícios (Hero simples) */
+#page-hero {
+    background: var(--cor-secundaria);
+    color: var(--cor-branca);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#page-hero h1 {
+    font-size: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.cta-section {
+    background: var(--cor-fundo);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-secundaria);
+}
